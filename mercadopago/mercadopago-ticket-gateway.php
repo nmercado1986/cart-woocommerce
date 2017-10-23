@@ -1152,6 +1152,7 @@ class WC_WooMercadoPagoTicket_Gateway extends WC_Payment_Gateway {
 			$preferences['payer']['address']['neighborhood'] = $ticket_checkout['city'];
 			$preferences['payer']['address']['city'] = $ticket_checkout['city'];
 			$preferences['payer']['address']['federal_unit'] = $ticket_checkout['state'];
+			$preferences['payer']['address']['zip_code'] = $ticket_checkout['zipcode'];
 		}
 
 		// Do not set IPN url if it is a localhost.
