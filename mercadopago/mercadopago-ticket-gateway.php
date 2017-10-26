@@ -137,11 +137,6 @@ class WC_WooMercadoPagoTicket_Gateway extends WC_Payment_Gateway {
 			'woocommerce_gateway_title',
 			array( $this, 'get_payment_method_title_ticket' ), 10, 2
 		);
-		// Customizes thank you page.
-		add_filter(
-			'woocommerce_thankyou_order_received_text',
-			array( $this, 'show_ticket_button' ), 10, 2
-		);
 
 		if ( ! empty( $this->settings['enabled'] ) && $this->settings['enabled'] == 'yes' ) {
 			if ( $is_instance ) {
@@ -160,7 +155,7 @@ class WC_WooMercadoPagoTicket_Gateway extends WC_Payment_Gateway {
 				);
 				// Checkout updates.
 				add_action(
-					'woocommerce_thankyou',
+					'woocommerce_thankyou_' . $this->id,
 					array( $this, 'update_checkout_status' )
 				);
 			}
@@ -667,11 +662,9 @@ class WC_WooMercadoPagoTicket_Gateway extends WC_Payment_Gateway {
 			</script>';
 
 		}
-
-	}
-
-	public function show_ticket_button( $thankyoutext, $order ) {
+		
 		// WooCommerce 3.0 or later.
+		$order = wc_get_order( $order_id );
 		if ( method_exists( $order, 'get_meta' ) ) {
 			$used_gateway = $order->get_meta( '_used_gateway' );
 			$transaction_details = $order->get_meta( '_transaction_details_ticket' );
@@ -695,7 +688,8 @@ class WC_WooMercadoPagoTicket_Gateway extends WC_Payment_Gateway {
 			__( 'Print the Ticket', 'woocommerce-mercadopago-module' ) .
 			'</a> ';
 		$added_text = '<p>' . $html . '</p>';
-		return $added_text;
+		echo $added_text;
+
 	}
 
 	public function ticket_checkout_scripts() {
