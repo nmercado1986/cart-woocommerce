@@ -896,7 +896,7 @@ class WC_WooMercadoPago_Gateway extends WC_Payment_Gateway {
 				$html .= 	'#MP-Checkout-dialog #MP-Checkout-IFrame { bottom: -28px !important; height: 590px !important; }';
 				$html .= '</style>';
 				// === Includes the javascript of lightbox.
-				$html .= '<script type="text/javascript" src="//secure.mlstatic.com/mptools/render.js"></script>';
+				$html .= '<script type="text/javascript" src="https://secure.mlstatic.com/mptools/render.js"></script>';
 				$html .= '<script type="text/javascript">(function() { $MPC.openCheckout({ url: "' . esc_url( $url ) . '", mode: "modal" }); })();</script>';
 			} else {
 				// The checkout is made by rendering Mercado Pago form within a iframe.
