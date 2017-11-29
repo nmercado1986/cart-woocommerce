@@ -1,5 +1,9 @@
 CHANGELOG:
 
+= v2.2.19 (29/11/2017) =
+* Features
+	- NOTICE: We're updating and migrating this project to WooCommerce-MercadoPago - https://wordpress.org/plugins/woocommerce-mercadopago/. We'll offer support and bug fixes for this project, but new features and improvements will be made only for v3.x and above.
+
 = v2.2.18 (22/11/2017) =
 * Bug fixes
 	- Fixed a bug in the URL of javascript source for light-box window.
