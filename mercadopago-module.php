@@ -3,12 +3,12 @@
 /**
  * Plugin Name: Woo Mercado Pago Module
  * Plugin URI: https://github.com/mercadopago/cart-woocommerce
- * Description: This is the <strong>oficial</strong> module of Mercado Pago for WooCommerce plugin. This module enables WooCommerce to use Mercado Pago as a payment Gateway for purchases made in your e-commerce store.
+ * Description: This is the <strong>oficial</strong> module of Mercado Pago for WooCommerce plugin. This module enables WooCommerce to use Mercado Pago as a payment Gateway for purchases made in your e-commerce store. <strong>NOTE: We're gradually discontinuing this plugin, migrating and prioritizing the plugin <a href="https://wordpress.org/plugins/woocommerce-mercadopago/">woocommerce-mercadopago</a></strong>.
  * Author: Mercado Pago
  * Author URI: https://www.mercadopago.com.br/developers/
  * Developer: Marcelo Tomio Hama / marcelo.hama@mercadolivre.com
  * Copyright: Copyright(c) MercadoPago [https://www.mercadopago.com]
- * Version: 2.2.18
+ * Version: 2.2.19
  * License: https://www.gnu.org/licenses/gpl.html GPL version 2 or higher
  * Text Domain: woocommerce-mercadopago-module
  * Domain Path: /languages/
@@ -31,7 +31,7 @@ if ( ! class_exists( 'WC_WooMercadoPago_Module' ) ) :
 	 */
 	class WC_WooMercadoPago_Module {
 
-		const VERSION = '2.2.18';
+		const VERSION = '2.2.19';
 		const MIN_PHP = 5.6;
 
 		// Singleton design pattern
@@ -169,7 +169,11 @@ if ( ! class_exists( 'WC_WooMercadoPago_Module' ) ) :
 		// Add settings link on plugin page
 		public function woomercadopago_settings_link( $links ) {
 			$plugin_links = array();
-			$plugin_links[] = '<a href="' . esc_url( admin_url(
+			$plugin_links[] = '<img width="12" height="12" src="' . plugins_url( 'images/warning.png', __FILE__ ) . '">' .
+				' <a target="_blank" href="' .
+				__( 'https://github.com/mercadopago/cart-woocommerce/wiki/Upgrade', 'woocommerce-mercadopago-module' ) .
+				'">' . __( 'Update to WooCommerce MercadoPago', 'woocommerce-mercadopago-module' ) . '</a>';
+			$plugin_links[] = '<br><a href="' . esc_url( admin_url(
 				'admin.php?page=wc-settings&tab=checkout&section=WC_WooMercadoPago_Gateway' ) ) .
 				'">' . __( 'Basic Checkout', 'woocommerce-mercadopago-module' ) . '</a>';
 			$plugin_links[] = '<a href="' . esc_url( admin_url(
@@ -193,7 +197,7 @@ if ( ! class_exists( 'WC_WooMercadoPago_Module' ) ) :
 			$plugin_links[] = '<a target="_blank" href="' .
 				'https://wordpress.org/support/plugin/woo-mercado-pago-module#postform' .
 				'">' . __( 'Report Issue', 'woocommerce-mercadopago-module' ) . '</a>';
-			return array_merge($plugin_links, $links);
+			return array_merge( $plugin_links, $links );
 		}
 
 		/**

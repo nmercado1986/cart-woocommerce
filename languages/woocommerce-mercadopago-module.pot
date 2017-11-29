@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #. Description of the plugin/theme
-msgid "This is the <strong>oficial</strong> module of Mercado Pago for WooCommerce plugin. This module enables WooCommerce to use Mercado Pago as a payment Gateway for purchases made in your e-commerce store."
+msgid "This is the <strong>oficial</strong> module of Mercado Pago for WooCommerce plugin. This module enables WooCommerce to use Mercado Pago as a payment Gateway for purchases made in your e-commerce store. <strong>NOTE: We're gradually discontinuing this plugin, migrating and prioritizing the plugin <a href="https://wordpress.org/plugins/woocommerce-mercadopago/">woocommerce-mercadopago</a></strong>."
 msgstr ""
 
 #: mercadopago-module.php:69
@@ -1089,4 +1089,10 @@ msgid "SOCIAL NAME"
 msgstr ""
 
 msgid "CNPJ"
+msgstr ""
+
+msgid "Update to WooCommerce MercadoPago"
+msgstr ""
+
+msgid "https://github.com/mercadopago/cart-woocommerce/wiki/Upgrade"
 msgstr ""
