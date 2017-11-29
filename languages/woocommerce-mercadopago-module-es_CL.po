@@ -1100,3 +1100,6 @@ msgstr "RAZÓN SOCIAL"
 
 msgid "CNPJ"
 msgstr "CNPJ"
+
+msgid "https://github.com/mercadopago/cart-woocommerce/wiki/Upgrade"
+msgstr "https://github.com/mercadopago/cart-woocommerce/wiki/Actualización"

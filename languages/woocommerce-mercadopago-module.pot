@@ -1093,3 +1093,6 @@ msgstr ""
 
 msgid "Update to WooCommerce MercadoPago"
 msgstr ""
+
+msgid "https://github.com/mercadopago/cart-woocommerce/wiki/Upgrade"
+msgstr ""

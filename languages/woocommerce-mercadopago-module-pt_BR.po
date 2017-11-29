@@ -1168,3 +1168,6 @@ msgstr "CNPJ"
 
 msgid "Update to WooCommerce MercadoPago"
 msgstr "Atualizar para o WooCommerce MercadoPago"
+
+msgid "https://github.com/mercadopago/cart-woocommerce/wiki/Upgrade"
+msgstr "https://github.com/mercadopago/cart-woocommerce/wiki/Atualização"

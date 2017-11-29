@@ -170,7 +170,8 @@ if ( ! class_exists( 'WC_WooMercadoPago_Module' ) ) :
 		public function woomercadopago_settings_link( $links ) {
 			$plugin_links = array();
 			$plugin_links[] = '<img width="12" height="12" src="' . plugins_url( 'images/warning.png', __FILE__ ) . '">' .
-				' <a target="_blank" href="' . 'https://wordpress.org/plugins/woocommerce-mercadopago/' .
+				' <a target="_blank" href="' .
+				__( 'https://github.com/mercadopago/cart-woocommerce/wiki/Upgrade', 'woocommerce-mercadopago-module' ) .
 				'">' . __( 'Update to WooCommerce MercadoPago', 'woocommerce-mercadopago-module' ) . '</a>';
 			$plugin_links[] = '<br><a href="' . esc_url( admin_url(
 				'admin.php?page=wc-settings&tab=checkout&section=WC_WooMercadoPago_Gateway' ) ) .
