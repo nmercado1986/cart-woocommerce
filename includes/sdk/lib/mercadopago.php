@@ -308,56 +308,6 @@ class MP {
 
 	}
 
-	//=== CHECKOUT AUXILIARY FUNCTIONS ===
-
-	/**
-	 * Summary: Get information for specific payment.
-	 * Description: Get information for specific payment.
-	 * @param int $id
-	 * @return array( json )
-	 */
-	public function get_payment_info( $id ) {
-
-		$uri_prefix = $this->sandbox ? '/sandbox' : '';
-
-		$request = array(
-			'uri' => $uri_prefix.'/collections/notifications/{$id}',
-			'params' => array(
-				'access_token' => $this->get_access_token()
-			 )
-		 );
-
-		$payment_info = MPRestClient::get( $request, $this->version );
-		return $payment_info;
-
-	}
-
-	/**
-	 * Summary: Search payments according to filters, with pagination.
-	 * Description: Search payments according to filters, with pagination.
-	 * @param array $filters
-	 * @param int $offset
-	 * @param int $limit
-	 * @return array( json )
-	 */
-	public function search_payment( $filters, $offset = 0, $limit = 0 ) {
-
-		$filters['offset'] = $offset;
-		$filters['limit'] = $limit;
-
-		$uri_prefix = $this->sandbox ? '/sandbox' : '';
-
-		$request = array(
-			'uri' => $uri_prefix . '/collections/search',
-			'params' => array_merge ( $filters, array(
-				'access_token' => $this->get_access_token()
-			 ) )
-		 );
-
-		$collection_result = MPRestClient::get( $request, $this->version );
-		return $collection_result;
-
-	}
 
 	/**
 	 * Summary: Get information for specific authorized payment.
@@ -564,7 +514,7 @@ class MP {
 	public function refund_payment( $id ) {
 
 		$request = array(
-			'uri' => '/collections/' . $id,
+			'uri' => '/v1/payments/' . $id,
 			'params' => array(
 				'access_token' => $this->get_access_token()
 			 ),
@@ -585,7 +535,7 @@ class MP {
 	public function partial_refund_payment( $id, $amount, $reason, $external_reference ) {
 
 		$request = array(
-			'uri' => '/collections/' . $id . '/refunds?access_token=' . $this->get_access_token(),
+			'uri' => '/v1/payments' . $id . '/refunds?access_token=' . $this->get_access_token(),
 			'data' => array(
 				'amount' => $amount,
 				'metadata' => array(
@@ -609,7 +559,7 @@ class MP {
 	public function cancel_payment( $id ) {
 
 		$request = array(
-			'uri' => '/collections/' . $id,
+			'uri' => '/v1/payments/' . $id,
 			'params' => array(
 				'access_token' => $this->get_access_token()
 			 ),
