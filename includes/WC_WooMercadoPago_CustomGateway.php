@@ -18,6 +18,8 @@ require_once dirname( __FILE__ ) . '/sdk/lib/mercadopago.php';
  */
 class WC_WooMercadoPago_CustomGateway extends WC_Payment_Gateway {
 
+        var $id = 'woo-mercado-pago-custom';
+
 	public function __construct( $is_instance = false ) {
 
 		// Mercao Pago instance.
@@ -32,8 +34,6 @@ class WC_WooMercadoPago_CustomGateway extends WC_Payment_Gateway {
 		$locale = ( strpos( $locale, '_' ) !== false && strlen( $locale ) == 5 ) ? explode( '_', $locale ) : array('','');
 		$this->mp->set_locale( $locale[1] );
 
-		// WooCommerce fields.
-		$this->id = 'woo-mercado-pago-custom';
 		$this->supports = array( 'products', 'refunds' );
 		$this->icon = apply_filters(
 			'woocommerce_mercadopago_icon',
@@ -395,7 +395,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_Payment_Gateway {
 	}
 
 	// Write log.
-	private function write_log( $function, $message ) {
+	protected function write_log( $function, $message ) {
 		$_mp_debug_mode = get_option( '_mp_debug_mode', '' );
 		if ( ! empty ( $_mp_debug_mode ) ) {
 			$this->log->add(
@@ -551,7 +551,6 @@ class WC_WooMercadoPago_CustomGateway extends WC_Payment_Gateway {
 		} else {
  			update_post_meta( $order_id, '_used_gateway', 'WC_WooMercadoPago_CustomGateway' );
  		}
-
  		// Mexico country case.
 		if ( ! isset( $custom_checkout['paymentMethodId'] ) || empty( $custom_checkout['paymentMethodId'] ) ) {
 			$custom_checkout['paymentMethodId'] = $custom_checkout['paymentMethodSelector'];
@@ -678,7 +677,7 @@ class WC_WooMercadoPago_CustomGateway extends WC_Payment_Gateway {
 	 * from the cart.
 	 * @return the preference object.
 	 */
-	private function build_payment_preference( $order, $custom_checkout ) {
+	protected function build_payment_preference( $order, $custom_checkout ) {
 
 		// A string to register items (workaround to deal with API problem that shows only first item).
 		$items = array();

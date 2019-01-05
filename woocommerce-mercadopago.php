@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: WooCommerce MercadoPago
- * Plugin URI: https://github.com/mercadopago/cart-woocommerce
- * Description: This is the <strong>oficial</strong> module of Mercado Pago for WooCommerce plugin. This module enables WooCommerce to use Mercado Pago as a payment Gateway for purchases made in your e-commerce store.
+ * Plugin Name: WooCommerce MercadoPago - Extensible
+ * Plugin URI:  https://github.com/nmercado1986/cart-woocommerce
+ * Description: Fork del cart de woocommerce para mercadopago que permite extender ciertos métodos originalmente definidos como privados en el plugin de mercadopago
  * Version: 3.0.17
- * Author: Mercado Pago
- * Author URI: https://www.mercadopago.com.br/developers/
+ * Author: Nicolás Mercado
+ * Author URI: https://github.com/nmercado1986
  * Text Domain: woocommerce-mercadopago
  * Domain Path: /i18n/languages/
  * WC requires at least: 3.0.0
@@ -13,7 +13,7 @@
  *
  * @package MercadoPago
  * @category Core
- * @author Mercado Pago
+ * @author Nicolás Mercado
  */
 
 // Exit if accessed directly.
@@ -1016,6 +1016,9 @@ if ( ! class_exists( 'WC_Woo_Mercado_Pago_Module' ) ) :
 					'<a class="button button-primary" href="' . esc_url( admin_url(
 						'admin.php?page=wc-settings&tab=checkout&section=woo-mercado-pago-custom' ) ) .
 						'">' . __( 'Custom Checkout', 'woocommerce-mercadopago' ) . '</a>' . ' ' .
+					'<a class="button button-primary" href="' . esc_url( admin_url(
+						'admin.php?page=wc-settings&tab=checkout&section=woo-mercado-pago-custom-connect' ) ) .
+						'">' . __( 'Custom Checkout w/ Connect', 'woocommerce-mercadopago' ) . '</a>' . ' ' .
 					'<a class="button button-primary" href="' . esc_url( admin_url(
 						'admin.php?page=wc-settings&tab=checkout&section=woo-mercado-pago-ticket' ) ) .
 						'">' . __( 'Ticket', 'woocommerce-mercadopago' ) . '</a>' . ' ' .

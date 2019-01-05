@@ -1421,7 +1421,7 @@ if ( 'Twenty Seventeen' == $theme->name || 'Twenty Seventeen' == $theme->parent_
 		"<?php echo $public_key; ?>",
 		"<?php echo $coupon_mode; ?>" == "yes",
 		"<?php echo $discount_action_url; ?>",
-		"<?php echo $payer_email; ?>"
+		document.querySelector('#billing_email').value
 	);
 
 	document.querySelector( "#custom_checkout_fieldset" ).style.display = "block";
